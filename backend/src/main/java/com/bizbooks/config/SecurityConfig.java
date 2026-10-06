@@ -63,25 +63,21 @@ public class SecurityConfig {
                 // CUSTOMER
                 // =========================
 
-                // Only OWNER can create customers
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/customers"
                 ).hasRole("OWNER")
 
-                // Only OWNER can update customers
                 .requestMatchers(
                     HttpMethod.PUT,
                     "/api/customers/**"
                 ).hasRole("OWNER")
 
-                // Only OWNER can delete customers
                 .requestMatchers(
                     HttpMethod.DELETE,
                     "/api/customers/**"
                 ).hasRole("OWNER")
 
-                // All logged-in users can view customers
                 .requestMatchers(
                     HttpMethod.GET,
                     "/api/customers/**"
@@ -92,19 +88,16 @@ public class SecurityConfig {
                 // INVOICES
                 // =========================
 
-                // OWNER + ACCOUNTANT can create invoices
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/invoices"
                 ).hasAnyRole("OWNER", "ACCOUNTANT")
 
-                // OWNER + ACCOUNTANT can update invoices
                 .requestMatchers(
                     HttpMethod.PUT,
                     "/api/invoices/**"
                 ).hasAnyRole("OWNER", "ACCOUNTANT")
 
-                // Logged-in users can view invoices
                 .requestMatchers(
                     HttpMethod.GET,
                     "/api/invoices/**"
@@ -115,13 +108,11 @@ public class SecurityConfig {
                 // INVOICE ITEMS
                 // =========================
 
-                // OWNER + ACCOUNTANT can add invoice items
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/invoice-items"
                 ).hasAnyRole("OWNER", "ACCOUNTANT")
 
-                // Logged-in users can view invoice items
                 .requestMatchers(
                     HttpMethod.GET,
                     "/api/invoice-items/**"
@@ -132,19 +123,16 @@ public class SecurityConfig {
                 // EXPENSES
                 // =========================
 
-                // OWNER + ACCOUNTANT can create expenses
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/expenses"
                 ).hasAnyRole("OWNER", "ACCOUNTANT")
 
-                // OWNER + ACCOUNTANT can update expenses
                 .requestMatchers(
                     HttpMethod.PUT,
                     "/api/expenses/**"
                 ).hasAnyRole("OWNER", "ACCOUNTANT")
 
-                // OWNER + ACCOUNTANT can view expenses
                 .requestMatchers(
                     HttpMethod.GET,
                     "/api/expenses/**"
@@ -155,7 +143,6 @@ public class SecurityConfig {
                 // CURRENCY
                 // =========================
 
-                // OWNER + ACCOUNTANT can use currency lookup
                 .requestMatchers(
                     HttpMethod.GET,
                     "/api/currency/**"
@@ -166,7 +153,7 @@ public class SecurityConfig {
                 // PAYMENTS
                 // =========================
 
-                // Only OWNER + ACCOUNTANT can create payments
+                // Only OWNER + ACCOUNTANT can record payments
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/payments"
@@ -198,7 +185,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-            List.of("http://localhost:5173")
+            List.of("http://localhost:5173", "https://bizbook3.netlify.app")
         );
 
         configuration.setAllowedMethods(
