@@ -14,6 +14,22 @@ import { useEffect, useState } from "react";
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
 
 
@@ -22,7 +38,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -38,7 +70,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -62,7 +118,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
   const savedUser = localStorage.getItem("bizbooksUser");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -86,7 +166,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    return savedUser ? JSON.parse(savedUser) : null;
+
+
+
+
+
+
+
+
 
 
 
@@ -102,6 +198,14 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    return null;
 
 
@@ -110,7 +214,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -134,6 +254,22 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const [loginEmail, setLoginEmail] = useState("");
 
 
@@ -142,7 +278,40 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [loginPassword, setLoginPassword] = useState("");
+
+  // Authentication flow:
+  // role -> login, and CUSTOMER can also go to register.
+  const [authMode, setAuthMode] = useState("role");
+  const [selectedRole, setSelectedRole] = useState("");
+
+  const [registerName, setRegisterName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,6 +328,14 @@ function App() {
 
 
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -174,7 +351,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -198,7 +399,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [invoices, setInvoices] = useState([]);
+
+
+
+
+
+
+
+
 
 
 
@@ -222,7 +439,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -238,7 +479,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -262,7 +527,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [email, setEmail] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -278,7 +559,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [address, setAddress] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -302,7 +599,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -318,7 +639,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -342,7 +687,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [selectedCustomer, setSelectedCustomer] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -358,7 +719,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [dueDate, setDueDate] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -374,7 +751,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [invoiceCurrency, setInvoiceCurrency] = useState("INR");
+
+
+
+
+
+
+
+
 
 
 
@@ -390,7 +783,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [tax, setTax] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -406,7 +815,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  {
+
+
+
+
+
+
+
+
 
 
 
@@ -422,7 +847,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
   quantity: "",
+
+
+
+
+
+
+
+
 
 
 
@@ -438,7 +879,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  }
+
+
+
+
+
+
+
+
 
 
 
@@ -450,11 +907,21 @@ function App() {
 
 
 
+
+
+
+
   // INVOICE DETAILS
+
+
 
   const [selectedInvoice, setSelectedInvoice] = useState(null);
 
+
+
   const [selectedInvoiceItems, setSelectedInvoiceItems] = useState([]);
+
+
 
   const [invoiceDetailsLoading, setInvoiceDetailsLoading] = useState(false);
 
@@ -474,7 +941,33 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -490,7 +983,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -514,6 +1031,14 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [expenseAmount, setExpenseAmount] = useState("");
 
 
@@ -522,7 +1047,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [expenseCategory, setExpenseCategory] = useState("");
+
+
+
+
+
+
+
+
 
 
 
@@ -546,7 +1087,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -562,7 +1127,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -586,7 +1175,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [fromCurrency, setFromCurrency] = useState("USD");
+
+
+
+
+
+
+
+
 
 
 
@@ -602,7 +1207,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const [exchangeRate, setExchangeRate] = useState(null);
+
+
+
+
+
+
+
+
 
 
 
@@ -626,7 +1247,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -642,7 +1287,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -674,6 +1343,22 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const isOwner = userRole === "OWNER";
 
 
@@ -682,7 +1367,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const isAccountant = userRole === "ACCOUNTANT";
+
+
+
+
+
+
+
+
 
 
 
@@ -706,7 +1407,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -722,7 +1447,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -746,7 +1495,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
   event.preventDefault();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -770,6 +1543,14 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please enter email and password");
 
 
@@ -778,7 +1559,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    return;
+
+
+
+
+
+
+
+
 
 
 
@@ -802,7 +1599,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   try {
+
+
+
+
+
+
+
+
 
 
 
@@ -818,7 +1639,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
     "http://localhost:8080/api/auth/login",
+
+
+
+
+
+
+
+
 
 
 
@@ -834,7 +1671,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
      method: "POST",
+
+
+
+
+
+
+
+
 
 
 
@@ -850,7 +1703,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
       "Content-Type": "application/json",
+
+
+
+
+
+
+
+
 
 
 
@@ -866,7 +1735,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
      body: JSON.stringify({
+
+
+
+
+
+
+
+
 
 
 
@@ -882,7 +1767,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
       password: loginPassword,
+
+
+
+
+
+
+
+
 
 
 
@@ -898,6 +1799,14 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
     }
 
 
@@ -906,7 +1815,31 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -930,7 +1863,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  const errorText = await response.text();
+
+
+
+
+
+
+
+
 
 
 
@@ -946,7 +1895,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  console.log("LOGIN ERROR:", errorText);
+
+
+
+
+
+
+
+
 
 
 
@@ -962,7 +1927,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
  return;
+
+
+
+
+
+
+
+
 
 
 
@@ -986,7 +1967,46 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    const user = await response.json();
+
+    if (selectedRole && user.role !== selectedRole) {
+      alert(
+        `This account is registered as ${user.role}. Please choose ${user.role} on the previous screen.`
+      );
+      return;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1010,7 +2030,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
     "bizbooksUser",
+
+
+
+
+
+
+
+
 
 
 
@@ -1026,6 +2062,14 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
    );
 
 
@@ -1034,7 +2078,23 @@ function App() {
 
 
 
+
+
+
+
+
+
+
+
 localStorage.setItem("bizbooksToken", user.token);
+
+
+
+
+
+
+
+
 
 
 
@@ -1058,7 +2118,31 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    setLoginEmail("");
+
+
+
+
+
+
+
+
 
 
 
@@ -1074,7 +2158,23 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
   } catch (error) {
+
+
+
+
+
+
+
+
 
 
 
@@ -1090,6 +2190,14 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
    alert("Invalid email or password");
 
 
@@ -1098,7 +2206,23 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -1122,6 +2246,22 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
 
 
@@ -1130,7 +2270,97 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
- // LOGOUT
+
+
+
+
+
+
+
+
+// =========================
+  // REGISTER
+  // CUSTOMER ONLY
+  // =========================
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+
+    if (selectedRole !== "CUSTOMER") {
+      alert("Only customers can register from this page.");
+      return;
+    }
+
+    if (!registerName.trim() || !registerEmail.trim() || !registerPassword) {
+      alert("Please enter name, email and password");
+      return;
+    }
+
+    if (registerPassword.length < 4) {
+      alert("Password must contain at least 4 characters");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: registerName.trim(),
+            email: registerEmail.trim(),
+            password: registerPassword,
+            role: "CUSTOMER",
+          }),
+        }
+      );
+
+      const responseText = await response.text();
+
+      let data = {};
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        data = {};
+      }
+
+      if (!response.ok) {
+        alert(
+          data.message ||
+          data.error ||
+          responseText ||
+          "Registration failed"
+        );
+        return;
+      }
+
+      alert("Registration successful! Please login.");
+
+      setLoginEmail(registerEmail.trim());
+      setLoginPassword("");
+      setRegisterName("");
+      setRegisterEmail("");
+      setRegisterPassword("");
+      setAuthMode("login");
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Unable to connect to server");
+    }
+  };
+
+  // =========================
+  // LOGOUT
+
+
+
+
+
+
+
+
 
 
 
@@ -1139,6 +2369,22 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1155,6 +2401,14 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
  const handleLogout = () => {
+    localStorage.removeItem("bizbooksUser");
+    localStorage.removeItem("bizbooksToken");
+    setLoggedInUser(null);
+    setSelectedRole("");
+    setAuthMode("role");
+    setLoginEmail("");
+    setLoginPassword("");
+  };
 
 
 
@@ -1162,7 +2416,6 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
-  localStorage.removeItem("bizbooksUser");
 
 
 
@@ -1170,23 +2423,8 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
-  localStorage.removeItem("bizbooksToken");
 
 
-
-
-
-
-
-  setLoggedInUser(null);
-
-
-
-
-
-
-
- };
 
 
 
@@ -1203,6 +2441,14 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -1218,6 +2464,14 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
  // =========================
 
 
@@ -1226,7 +2480,23 @@ localStorage.setItem("bizbooksToken", user.token);
 
 
 
+
+
+
+
+
+
+
+
 const authFetch = async (url, options = {}) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -1250,7 +2520,31 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const headers = {
+
+
+
+
+
+
+
+
 
 
 
@@ -1266,6 +2560,14 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
   ...(token ? { Authorization: `Bearer ${token}` } : {}),
 
 
@@ -1274,7 +2576,31 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1298,6 +2624,14 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
   ...options,
 
 
@@ -1306,7 +2640,23 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
   headers,
+
+
+
+
+
+
+
+
 
 
 
@@ -1330,7 +2680,31 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  if (response.status === 401) {
+
+
+
+
+
+
+
+
 
 
 
@@ -1346,7 +2720,23 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
  localStorage.removeItem("bizbooksToken");
+
+
+
+
+
+
+
+
 
 
 
@@ -1370,6 +2760,22 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  throw new Error("Session expired. Please login again.");
 
 
@@ -1378,7 +2784,31 @@ const authFetch = async (url, options = {}) => {
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1402,7 +2832,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1426,7 +2880,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   authFetch("http://localhost:8080/api/customers")
+
+
+
+
+
+
+
+
 
 
 
@@ -1442,7 +2912,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    .then((data) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -1458,7 +2944,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -1474,6 +2976,14 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
     console.error("Customer fetch error:", error);
 
 
@@ -1482,7 +2992,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -1506,7 +3032,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -1522,7 +3072,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1546,7 +3120,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   authFetch("http://localhost:8080/api/invoices")
+
+
+
+
+
+
+
+
 
 
 
@@ -1562,7 +3152,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    .then((data) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -1578,7 +3184,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -1594,6 +3216,14 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
     console.error("Invoice fetch error:", error);
 
 
@@ -1602,7 +3232,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -1626,7 +3272,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -1642,7 +3312,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1666,7 +3360,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   authFetch("http://localhost:8080/api/expenses")
+
+
+
+
+
+
+
+
 
 
 
@@ -1682,7 +3392,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    .then((data) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -1698,7 +3424,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -1714,6 +3456,14 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
     console.error("Expense fetch error:", error);
 
 
@@ -1722,7 +3472,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -1746,7 +3512,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -1762,7 +3552,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1786,7 +3600,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   if (!loggedInUser) {
+
+
+
+
+
+
+
+
 
 
 
@@ -1802,7 +3632,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1826,6 +3680,14 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   fetchInvoices();
 
 
@@ -1834,7 +3696,23 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
   fetchExpenses();
+
+
+
+
+
+
+
+
 
 
 
@@ -1858,7 +3736,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -1874,6 +3776,14 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  // OWNER ONLY
 
 
@@ -1882,7 +3792,31 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1902,7 +3836,19 @@ return response;
 
 
 
+
+
+
+
  event.preventDefault();
+
+
+
+
+
+
+
+
 
 
 
@@ -1914,7 +3860,15 @@ return response;
 
 
 
+
+
+
+
   name,
+
+
+
+
 
 
 
@@ -1922,11 +3876,23 @@ return response;
 
 
 
+
+
+
+
   phone,
 
 
 
+
+
+
+
   address,
+
+
+
+
 
 
 
@@ -1938,7 +3904,19 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
  authFetch("http://localhost:8080/api/customers", {
+
+
+
+
 
 
 
@@ -1946,7 +3924,15 @@ return response;
 
 
 
+
+
+
+
   headers: {
+
+
+
+
 
 
 
@@ -1954,7 +3940,15 @@ return response;
 
 
 
+
+
+
+
   },
+
+
+
+
 
 
 
@@ -1962,7 +3956,15 @@ return response;
 
 
 
+
+
+
+
  })
+
+
+
+
 
 
 
@@ -1970,7 +3972,15 @@ return response;
 
 
 
+
+
+
+
    if (!response.ok) throw new Error("Failed to create customer");
+
+
+
+
 
 
 
@@ -1978,7 +3988,15 @@ return response;
 
 
 
+
+
+
+
   })
+
+
+
+
 
 
 
@@ -1986,7 +4004,15 @@ return response;
 
 
 
+
+
+
+
    alert("Customer added successfully");
+
+
+
+
 
 
 
@@ -1994,7 +4020,15 @@ return response;
 
 
 
+
+
+
+
    setEmail("");
+
+
+
+
 
 
 
@@ -2002,7 +4036,15 @@ return response;
 
 
 
+
+
+
+
    setAddress("");
+
+
+
+
 
 
 
@@ -2010,7 +4052,15 @@ return response;
 
 
 
+
+
+
+
   })
+
+
+
+
 
 
 
@@ -2018,7 +4068,15 @@ return response;
 
 
 
+
+
+
+
    console.error("Customer creation error:", error);
+
+
+
+
 
 
 
@@ -2026,7 +4084,15 @@ return response;
 
 
 
+
+
+
+
   });
+
+
+
+
 
 
 
@@ -2038,7 +4104,19 @@ return response;
 
 
 
+
+
+
+
+
+
+
+
 // =========================
+
+
+
+
 
 
 
@@ -2046,7 +4124,19 @@ return response;
 
 
 
+
+
+
+
 // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -2058,7 +4148,19 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
  event.preventDefault();
+
+
+
+
+
+
+
+
 
 
 
@@ -2074,7 +4176,19 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
+
+
+
+
  authFetch(`http://localhost:8080/api/customers/${editingCustomerId}`, {
+
+
+
+
 
 
 
@@ -2082,7 +4196,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
   headers: { "Content-Type": "application/json" },
+
+
+
+
 
 
 
@@ -2090,7 +4212,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
  })
+
+
+
+
 
 
 
@@ -2098,7 +4228,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    if (!response.ok) throw new Error("Failed to update customer");
+
+
+
+
 
 
 
@@ -2106,7 +4244,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
   })
+
+
+
+
 
 
 
@@ -2114,7 +4260,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    alert("Customer updated successfully");
+
+
+
+
 
 
 
@@ -2122,7 +4276,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    setEmail("");
+
+
+
+
 
 
 
@@ -2130,7 +4292,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    setAddress("");
+
+
+
+
 
 
 
@@ -2138,7 +4308,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    fetchCustomers();
+
+
+
+
 
 
 
@@ -2146,7 +4324,15 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
   .catch((error) => {
+
+
+
+
 
 
 
@@ -2154,11 +4340,23 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
    alert("Unable to update customer");
 
 
 
+
+
+
+
   });
+
+
+
+
 
 
 
@@ -2170,7 +4368,19 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
+
+
+
+
 // =========================
+
+
+
+
 
 
 
@@ -2178,7 +4388,19 @@ const updateCustomer = (event) => {
 
 
 
+
+
+
+
 // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -2190,7 +4412,19 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
  if (!window.confirm("Are you sure you want to delete this customer?")) return;
+
+
+
+
+
+
+
+
 
 
 
@@ -2202,7 +4436,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
   method: "DELETE",
+
+
+
+
 
 
 
@@ -2210,7 +4452,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
   .then((response) => {
+
+
+
+
 
 
 
@@ -2218,11 +4468,23 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
    return response.text();
 
 
 
+
+
+
+
   })
+
+
+
+
 
 
 
@@ -2230,7 +4492,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
    alert("Customer deleted successfully");
+
+
+
+
 
 
 
@@ -2238,7 +4508,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
   })
+
+
+
+
 
 
 
@@ -2246,7 +4524,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
    console.error("Customer deletion error:", error);
+
+
+
+
 
 
 
@@ -2254,7 +4540,15 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
   });
+
+
+
+
 
 
 
@@ -2266,7 +4560,19 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
+
+
+
+
 // =========================
+
+
+
+
 
 
 
@@ -2274,7 +4580,19 @@ const deleteCustomer = (id) => {
 
 
 
+
+
+
+
 // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -2286,7 +4604,15 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
  setEditingCustomerId(customer.id);
+
+
+
+
 
 
 
@@ -2294,7 +4620,15 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
  setEmail(customer.email);
+
+
+
+
 
 
 
@@ -2302,7 +4636,15 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
  setAddress(customer.address);
+
+
+
+
 
 
 
@@ -2314,95 +4656,195 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
 // =========================
+
+
+
+
 
 
 
 // INVOICE DETAILS
 
+
+
 // =========================
+
+
+
+
 
 
 
   const viewInvoiceDetails = async (invoice) => {
 
+
+
     setSelectedInvoice(invoice);
 
+
+
     setSelectedInvoiceItems([]);
+
+
 
     setInvoiceDetailsLoading(true);
 
 
 
+
+
+
+
     try {
+
+
 
       const response = await authFetch(
 
+
+
         `http://localhost:8080/api/invoice-items/invoice/${invoice.id}`
+
+
 
       );
 
 
 
+
+
+
+
       if (!response.ok) {
 
+
+
         throw new Error("Failed to load invoice items");
+
+
 
       }
 
 
 
+
+
+
+
       const data = await response.json();
+
+
 
       setSelectedInvoiceItems(data);
 
+
+
     } catch (error) {
+
+
 
       console.error("Invoice details error:", error);
 
+
+
       alert("Unable to load invoice details");
+
+
 
     } finally {
 
+
+
       setInvoiceDetailsLoading(false);
+
+
 
     }
 
+
+
   };
+
+
+
+
 
 
 
   const closeInvoiceDetails = () => {
 
+
+
     setSelectedInvoice(null);
 
+
+
     setSelectedInvoiceItems([]);
+
+
 
   };
 
 
 
+
+
+
+
   const calculatedInvoiceSubtotal = invoiceItems.reduce(
+
+
 
     (sum, item) =>
 
+
+
       sum +
+
+
 
       (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0),
 
+
+
     0
+
+
 
   );
 
 
 
+
+
+
+
   // =========================
+
+
 
   // CREATE INVOICE
 
+
+
   // OWNER + ACCOUNTANT
 
+
+
   // =========================
+
+
+
+
 
 
 
@@ -2414,7 +4856,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   event.preventDefault();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2438,6 +4904,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please select a customer");
 
 
@@ -2446,7 +4920,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    return;
+
+
+
+
+
+
+
+
 
 
 
@@ -2470,13 +4960,51 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   if (calculatedInvoiceSubtotal <= 0) {
+
+
 
       alert("Please add at least one invoice item with a valid quantity and unit price");
 
+
+
       return;
 
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2500,7 +5028,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please enter a valid tax");
+
+
+
+
+
+
+
+
 
 
 
@@ -2516,7 +5060,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2540,7 +5108,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    invoiceNumber,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2564,6 +5156,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     id: Number(selectedCustomer),
 
 
@@ -2572,7 +5172,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2596,7 +5220,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    dueDate,
+
+
+
+
+
+
+
+
 
 
 
@@ -2612,7 +5252,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    currency: invoiceCurrency,
+
+
+
+
+
+
+
+
 
 
 
@@ -2628,6 +5284,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    tax: Number(tax),
 
 
@@ -2636,7 +5300,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2660,7 +5348,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    method: "POST",
+
+
+
+
+
+
+
+
 
 
 
@@ -2676,7 +5380,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     "Content-Type": "application/json",
+
+
+
+
+
+
+
+
 
 
 
@@ -2692,7 +5412,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    body: JSON.stringify(invoice),
+
+
+
+
+
+
+
+
 
 
 
@@ -2708,7 +5444,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .then((response) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -2724,6 +5476,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      throw new Error("Failed to create invoice");
 
 
@@ -2732,7 +5492,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2756,7 +5540,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -2772,7 +5572,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     for (const item of invoiceItems) {
+
+
+
+
+
+
+
+
 
 
 
@@ -2788,7 +5604,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   await authFetch("http://localhost:8080/api/invoice-items", {
+
+
+
+
+
+
+
+
 
 
 
@@ -2804,7 +5636,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    headers: {
+
+
+
+
+
+
+
+
 
 
 
@@ -2820,7 +5668,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    },
+
+
+
+
+
+
+
+
 
 
 
@@ -2836,7 +5700,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     description: item.description,
+
+
+
+
+
+
+
+
 
 
 
@@ -2852,7 +5732,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     unitPrice: Number(item.unitPrice),
+
+
+
+
+
+
+
+
 
 
 
@@ -2868,7 +5764,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      id: createdInvoice.id
+
+
+
+
+
+
+
+
 
 
 
@@ -2884,7 +5796,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    }),
+
+
+
+
+
+
+
+
 
 
 
@@ -2900,6 +5828,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  }
 
 
@@ -2908,7 +5844,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -2932,7 +5884,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     setInvoiceNumber("");
+
+
+
+
+
+
+
+
 
 
 
@@ -2948,7 +5924,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     setIssueDate("");
+
+
+
+
+
+
+
+
 
 
 
@@ -2964,7 +5956,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     setInvoiceStatus("DRAFT");
+
+
+
+
+
+
+
+
 
 
 
@@ -2974,23 +5982,57 @@ const startEditCustomer = (customer) => {
 
     setInvoiceCurrency("INR");
 
+
+
         setSubtotal("");
+
+
 
         setTax("");
 
+
+
         setInvoiceItems([
+
+
 
           {
 
+
+
             description: "",
+
+
 
             quantity: "",
 
+
+
             unitPrice: ""
+
+
 
           }
 
+
+
         ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3014,7 +6056,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -3030,7 +6088,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     console.error("Invoice creation error:", error);
+
+
+
+
+
+
+
+
 
 
 
@@ -3046,7 +6120,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -3070,7 +6160,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -3086,6 +6200,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // OWNER + ACCOUNTANT
 
 
@@ -3094,7 +6216,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3118,7 +6264,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   event.preventDefault();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3142,7 +6312,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please enter expense description");
+
+
+
+
+
+
+
+
 
 
 
@@ -3158,7 +6344,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3182,7 +6392,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please enter a valid expense amount");
+
+
+
+
+
+
+
+
 
 
 
@@ -3198,7 +6424,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3222,7 +6472,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please enter expense category");
+
+
+
+
+
+
+
+
 
 
 
@@ -3238,7 +6504,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3262,7 +6552,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    alert("Please select expense date");
+
+
+
+
+
+
+
+
 
 
 
@@ -3278,7 +6584,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3302,7 +6632,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    description: expenseDescription,
+
+
+
+
+
+
+
+
 
 
 
@@ -3318,7 +6664,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    category: expenseCategory,
+
+
+
+
+
+
+
+
 
 
 
@@ -3334,7 +6696,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3358,7 +6744,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    method: "POST",
+
+
+
+
+
+
+
+
 
 
 
@@ -3374,7 +6776,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     "Content-Type": "application/json",
+
+
+
+
+
+
+
+
 
 
 
@@ -3390,7 +6808,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    body: JSON.stringify(expense),
+
+
+
+
+
+
+
+
 
 
 
@@ -3406,7 +6840,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .then((response) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -3422,7 +6872,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      throw new Error("Failed to create expense");
+
+
+
+
+
+
+
+
 
 
 
@@ -3446,7 +6912,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return response.json();
+
+
+
+
+
+
+
+
 
 
 
@@ -3462,7 +6952,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .then(() => {
+
+
+
+
+
+
+
+
 
 
 
@@ -3486,7 +6992,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     setExpenseDescription("");
+
+
+
+
+
+
+
+
 
 
 
@@ -3502,7 +7032,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     setExpenseCategory("");
+
+
+
+
+
+
+
+
 
 
 
@@ -3526,7 +7072,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     fetchExpenses();
+
+
+
+
+
+
+
+
 
 
 
@@ -3542,7 +7112,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .catch((error) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -3558,6 +7144,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     alert("Unable to add expense");
 
 
@@ -3566,7 +7160,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -3590,7 +7200,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -3606,6 +7240,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // OWNER + ACCOUNTANT
 
 
@@ -3614,7 +7256,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3638,7 +7304,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   const updatedInvoice = {
+
+
+
+
+
+
+
+
 
 
 
@@ -3662,6 +7344,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    customer: {
 
 
@@ -3670,7 +7368,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     id: invoice.customer.id,
+
+
+
+
+
+
+
+
 
 
 
@@ -3694,7 +7408,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    issueDate: invoice.issueDate,
+
+
+
+
+
+
+
+
 
 
 
@@ -3710,7 +7448,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    status: newStatus,
+
+
+
+
+
+
+
+
 
 
 
@@ -3726,6 +7480,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    subtotal: invoice.subtotal,
 
 
@@ -3734,7 +7496,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    tax: invoice.tax,
+
+
+
+
+
+
+
+
 
 
 
@@ -3758,7 +7536,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   authFetch(
+
+
+
+
+
+
+
+
 
 
 
@@ -3774,7 +7576,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    {
+
+
+
+
+
+
+
+
 
 
 
@@ -3790,7 +7608,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     headers: {
+
+
+
+
+
+
+
+
 
 
 
@@ -3806,7 +7640,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     },
+
+
+
+
+
+
+
+
 
 
 
@@ -3822,7 +7672,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    }
+
+
+
+
+
+
+
+
 
 
 
@@ -3838,7 +7704,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .then((response) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -3854,7 +7736,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      throw new Error("Failed to update invoice");
+
+
+
+
+
+
+
+
 
 
 
@@ -3878,6 +7776,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return response.json();
 
 
@@ -3886,7 +7800,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -3902,7 +7832,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     fetchInvoices();
+
+
+
+
+
+
+
+
 
 
 
@@ -3918,7 +7864,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .catch((error) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -3934,7 +7896,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      "Invoice status update error:",
+
+
+
+
+
+
+
+
 
 
 
@@ -3950,7 +7928,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3974,7 +7976,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -3998,7 +8016,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -4008,61 +8050,119 @@ const startEditCustomer = (customer) => {
 
  // MARK INVOICE AS PAID
 
+
+
  // OWNER + ACCOUNTANT
 
+
+
  // =========================
+
+
+
+
 
 
 
  const markInvoiceAsPaid = async (invoice) => {
 
+
+
   if (!window.confirm(`Mark ${invoice.invoiceNumber} as PAID?`)) return;
+
+
+
+
 
 
 
   try {
 
+
+
    const response = await authFetch("http://localhost:8080/api/payments", {
+
+
 
     method: "POST",
 
+
+
     headers: { "Content-Type": "application/json" },
+
+
 
     body: JSON.stringify({
 
+
+
      invoiceId: invoice.id,
+
+
 
      amount: Number(invoice.total || 0),
 
+
+
      paymentDate: new Date().toISOString().split("T")[0],
+
+
 
      status: "COMPLETED"
 
+
+
     })
+
+
 
    });
 
 
 
+
+
+
+
    if (!response.ok) throw new Error(await response.text());
+
+
 
    alert("Payment recorded successfully. Invoice marked as PAID.");
 
+
+
    fetchInvoices();
+
+
 
   } catch (error) {
 
+
+
    console.error("Payment error:", error);
+
+
 
    alert("Unable to record payment");
 
+
+
   }
+
+
 
  };
 
 
 
+
+
+
+
  // =========================
+
+
 
  // // CURRENCY CONVERSION
 
@@ -4072,6 +8172,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // OWNER + ACCOUNTANT
 
 
@@ -4080,7 +8188,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4104,7 +8236,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   if (!amount || Number(amount) <= 0) {
+
+
+
+
+
+
+
+
 
 
 
@@ -4120,6 +8268,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    return;
 
 
@@ -4128,7 +8284,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4152,7 +8332,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    setExchangeRate(1);
+
+
+
+
+
+
+
+
 
 
 
@@ -4168,7 +8364,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    return;
+
+
+
+
+
+
+
+
 
 
 
@@ -4192,7 +8404,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   authFetch(
+
+
+
+
+
+
+
+
 
 
 
@@ -4208,7 +8444,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   )
+
+
+
+
+
+
+
+
 
 
 
@@ -4224,6 +8476,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     if (!response.ok) {
 
 
@@ -4232,7 +8492,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      throw new Error("Failed to get exchange rate");
+
+
+
+
+
+
+
+
 
 
 
@@ -4256,7 +8532,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return response.json();
+
+
+
+
+
+
+
+
 
 
 
@@ -4272,7 +8572,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    .then((data) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -4296,7 +8612,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     setExchangeRate(rate);
+
+
+
+
+
+
+
+
 
 
 
@@ -4312,7 +8652,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    })
+
+
+
+
+
+
+
+
 
 
 
@@ -4328,7 +8684,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     console.error(
+
+
+
+
+
+
+
+
 
 
 
@@ -4344,7 +8716,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      error
+
+
+
+
+
+
+
+
 
 
 
@@ -4368,6 +8756,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     alert("Unable to get exchange rate");
 
 
@@ -4376,7 +8780,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    });
+
+
+
+
+
+
+
+
 
 
 
@@ -4400,7 +8820,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -4416,7 +8860,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4440,7 +8908,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   (sum, invoice) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -4456,6 +8940,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   0
 
 
@@ -4464,7 +8956,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4488,7 +9004,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   (sum, expense) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -4504,7 +9036,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   0
+
+
+
+
+
+
+
+
 
 
 
@@ -4528,7 +9076,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const netAmount =
+
+
+
+
+
+
+
+
 
 
 
@@ -4552,7 +9124,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const issuedInvoices = invoices.filter(
+
+
+
+
+
+
+
+
 
 
 
@@ -4568,7 +9164,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  ).length;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4592,7 +9212,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   (invoice) => invoice.status === "PAID"
+
+
+
+
+
+
+
+
 
 
 
@@ -4616,583 +9252,7 @@ const startEditCustomer = (customer) => {
 
 
 
- // =========================
 
-
-
-
-
-
-
- // LOGIN SCREEN
-
-
-
-
-
-
-
- // =========================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- if (!loggedInUser) {
-
-
-
-
-
-
-
-  return (
-
-
-
-
-
-
-
-   <div className="login-page">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div className="login-card">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <h1>BizBooks</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <p>
-
-
-
-
-
-
-
-      Small-Business Invoicing & Expense Workspace
-
-
-
-
-
-
-
-     </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <h2>Login</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <form onSubmit={handleLogin}>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <input
-
-
-
-
-
-
-
-       type="email"
-
-
-
-
-
-
-
-       placeholder="Email"
-
-
-
-
-
-
-
-       value={loginEmail}
-
-
-
-
-
-
-
-       onChange={(e) =>
-
-
-
-
-
-
-
-        setLoginEmail(e.target.value)
-
-
-
-
-
-
-
-       }
-
-
-
-
-
-
-
-       required
-
-
-
-
-
-
-
-      />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <input
-
-
-
-
-
-
-
-       type="password"
-
-
-
-
-
-
-
-       placeholder="Password"
-
-
-
-
-
-
-
-       value={loginPassword}
-
-
-
-
-
-
-
-       onChange={(e) =>
-
-
-
-
-
-
-
-        setLoginPassword(e.target.value)
-
-
-
-
-
-
-
-       }
-
-
-
-
-
-
-
-       required
-
-
-
-
-
-
-
-      />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <button type="submit">
-
-
-
-
-
-
-
-       Login
-
-
-
-
-
-
-
-      </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <div className="demo-login">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <p>Demo Accounts</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <span>
-
-
-
-
-
-
-
-       Owner: owner@gmail.com
-
-
-
-
-
-
-
-      </span>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <span>
-
-
-
-
-
-
-
-       Accountant: accountant@gmail.com
-
-
-
-
-
-
-
-      </span>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <span>
-
-
-
-
-
-
-
-       Customer: customer@gmail.com
-
-
-
-
-
-
-
-      </span>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <small>
-
-
-
-
-
-
-
-       Password: 1234
-
-
-
-
-
-
-
-      </small>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   </div>
-
-
-
-
-
-
-
-  );
-
-
-
-
-
-
-
- }
 
 
 
@@ -5216,7 +9276,6 @@ const startEditCustomer = (customer) => {
 
 
 
- // MAIN APPLICATION
 
 
 
@@ -5224,7 +9283,232 @@ const startEditCustomer = (customer) => {
 
 
 
- // =========================
+
+ 
+// =========================
+  // LOGIN SCREEN
+  // ROLE -> LOGIN / REGISTER
+  // =========================
+
+  if (!loggedInUser) {
+
+    if (authMode === "role") {
+      return (
+        <div className="login-page">
+          <div className="login-card">
+            <h1>BizBooks</h1>
+
+            <p>
+              Small-Business Invoicing & Expense Workspace
+            </p>
+
+            <h2>Who are you?</h2>
+
+            <div
+              style={{
+                display: "grid",
+                gap: "12px",
+                marginTop: "20px",
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedRole("OWNER");
+                  setAuthMode("login");
+                }}
+              >
+                👑 Owner
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedRole("ACCOUNTANT");
+                  setAuthMode("login");
+                }}
+              >
+                🧾 Accountant
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedRole("CUSTOMER");
+                  setAuthMode("login");
+                }}
+              >
+                👤 Customer
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    const roleTitle =
+      selectedRole === "OWNER"
+        ? "Owner Login"
+        : selectedRole === "ACCOUNTANT"
+        ? "Accountant Login"
+        : "Customer Login";
+
+    if (authMode === "register" && selectedRole === "CUSTOMER") {
+      return (
+        <div className="login-page">
+          <div className="login-card">
+            <h1>BizBooks</h1>
+
+            <p>
+              Small-Business Invoicing & Expense Workspace
+            </p>
+
+            <h2>Customer Registration</h2>
+
+            <form onSubmit={handleRegister}>
+              <input
+                type="text"
+                placeholder="Name"
+                value={registerName}
+                onChange={(e) => setRegisterName(e.target.value)}
+                required
+              />
+
+              <input
+                type="email"
+                placeholder="Email"
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
+                required
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
+                required
+              />
+
+              <button type="submit">
+                Create Account
+              </button>
+            </form>
+
+            <button
+              type="button"
+              onClick={() => {
+                setRegisterName("");
+                setRegisterEmail("");
+                setRegisterPassword("");
+                setAuthMode("login");
+              }}
+              style={{
+                marginTop: "12px",
+                background: "#eef4ff",
+                color: "#1f5fe5",
+              }}
+            >
+              Back to Login
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="login-page">
+        <div className="login-card">
+          <h1>BizBooks</h1>
+
+          <p>
+            Small-Business Invoicing & Expense Workspace
+          </p>
+
+          <h2>{roleTitle}</h2>
+
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
+              required
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={loginPassword}
+              onChange={(e) => setLoginPassword(e.target.value)}
+              required
+            />
+
+            <button type="submit">
+              Login
+            </button>
+          </form>
+
+          {selectedRole === "CUSTOMER" && (
+            <button
+              type="button"
+              onClick={() => {
+                setRegisterName("");
+                setRegisterEmail("");
+                setRegisterPassword("");
+                setAuthMode("register");
+              }}
+              style={{
+                marginTop: "12px",
+                background: "#eef4ff",
+                color: "#1f5fe5",
+              }}
+            >
+              Register as Customer
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={() => {
+              setLoginEmail("");
+              setLoginPassword("");
+              setAuthMode("role");
+              setSelectedRole("");
+            }}
+            style={{
+              marginTop: "12px",
+              background: "#f3f4f6",
+              color: "#333",
+            }}
+          >
+            ← Choose Different Role
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // =========================
+  // MAIN APPLICATION
+  // =========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5248,7 +9532,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   <div className="app">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5280,7 +9588,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <div className="top-header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5304,7 +9644,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h1>BizBooks</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5328,7 +9692,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       Small-Business Invoicing & Expense Workspace
+
+
+
+
+
+
+
+
 
 
 
@@ -5344,7 +9724,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5376,7 +9780,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5392,7 +9820,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        {loggedInUser.name}
+
+
+
+
+
+
+
+
 
 
 
@@ -5416,7 +9860,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <span>
+
+
+
+
+
+
+
+
 
 
 
@@ -5432,7 +9900,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </span>
+
+
+
+
+
+
+
+
 
 
 
@@ -5456,7 +9940,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <button onClick={handleLogout}>
+
+
+
+
+
+
+
+
 
 
 
@@ -5472,7 +9980,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5504,7 +10036,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5528,7 +10092,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      DASHBOARD
+
+
+
+
+
+
+
+
 
 
 
@@ -5544,7 +10124,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      ========================= */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5576,7 +10180,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <div className="dashboard-grid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5600,7 +10236,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  <div className="dashboard-card">
+
+
+
+
+
+
+
+
 
 
 
@@ -5616,6 +10268,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   <p>{customers.length}</p>
 
 
@@ -5624,7 +10284,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5648,7 +10324,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div className="dashboard-card">
+
+
+
+
+
+
+
+
 
 
 
@@ -5664,7 +10364,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -5680,7 +10396,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      </p>
+
+
+
+
+
+
+
+
 
 
 
@@ -5704,6 +10436,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {!isCustomer && (
 
 
@@ -5712,7 +10460,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <div className="dashboard-card">
+
+
+
+
+
+
+
+
 
 
 
@@ -5728,7 +10492,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -5744,7 +10524,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </p>
+
+
+
+
+
+
+
+
 
 
 
@@ -5760,7 +10556,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5784,7 +10604,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <div className="dashboard-card">
+
+
+
+
+
+
+
+
 
 
 
@@ -5800,7 +10636,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -5816,6 +10668,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </p>
 
 
@@ -5824,7 +10684,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5848,7 +10724,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div className="dashboard-card">
+
+
+
+
+
+
+
+
 
 
 
@@ -5864,6 +10764,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <p>{issuedInvoices}</p>
 
 
@@ -5872,7 +10780,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5896,7 +10828,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h3>Paid Invoices</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -5912,7 +10860,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5944,7 +10916,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -5960,7 +10956,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      OWNER ONLY
+
+
+
+
+
+
+
+
 
 
 
@@ -5984,7 +10996,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {isOwner && (
+
+
+
+
+
+
+
+
 
 
 
@@ -6000,7 +11036,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h2>Add Customer</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6032,6 +11092,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
 
 
@@ -6040,7 +11116,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="text"
+
+
+
+
+
+
+
+
 
 
 
@@ -6056,6 +11148,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={name}
 
 
@@ -6064,7 +11164,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -6080,6 +11196,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
 
 
@@ -6088,7 +11212,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -6112,7 +11252,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -6128,7 +11292,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        placeholder="Email"
+
+
+
+
+
+
+
+
 
 
 
@@ -6144,7 +11324,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -6160,6 +11356,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
 
 
@@ -6168,7 +11372,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -6192,6 +11412,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
 
 
@@ -6200,7 +11436,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="text"
+
+
+
+
+
+
+
+
 
 
 
@@ -6216,7 +11468,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={phone}
+
+
+
+
+
+
+
+
 
 
 
@@ -6232,7 +11500,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setPhone(e.target.value)
+
+
+
+
+
+
+
+
 
 
 
@@ -6248,6 +11532,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
 
 
@@ -6256,7 +11548,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6280,7 +11596,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="text"
+
+
+
+
+
+
+
+
 
 
 
@@ -6296,7 +11628,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={address}
+
+
+
+
+
+
+
+
 
 
 
@@ -6312,7 +11660,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setAddress(e.target.value)
+
+
+
+
+
+
+
+
 
 
 
@@ -6328,6 +11692,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
 
 
@@ -6336,7 +11708,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6360,7 +11756,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  {editingCustomerId ? "Update Customer" : "Add Customer"}
+
+
+
+
+
+
+
+
 
 
 
@@ -6384,7 +11796,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {editingCustomerId && (
+
+
+
+
+
+
+
+
 
 
 
@@ -6400,7 +11836,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   type="button"
+
+
+
+
+
+
+
+
 
 
 
@@ -6416,7 +11868,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    setEditingCustomerId(null);
+
+
+
+
+
+
+
+
 
 
 
@@ -6432,7 +11900,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    setEmail("");
+
+
+
+
+
+
+
+
 
 
 
@@ -6448,7 +11932,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    setAddress("");
+
+
+
+
+
+
+
+
 
 
 
@@ -6464,7 +11964,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  >
+
+
+
+
+
+
+
+
 
 
 
@@ -6480,7 +11996,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  </button>
+
+
+
+
+
+
+
+
 
 
 
@@ -6504,7 +12036,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6536,7 +12100,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      {customers.length === 0 ? (
+
+
+
+
+
+
+
+
 
 
 
@@ -6552,7 +12140,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      ) : (
+
+
+
+
+
+
+
+
 
 
 
@@ -6576,7 +12180,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {customers.map((customer) => (
+
+
+
+
+
+
+
+
 
 
 
@@ -6592,7 +12220,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   <strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -6608,7 +12252,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   </strong>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6640,6 +12308,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {customer.email}
 
 
@@ -6656,6 +12340,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <button
 
 
@@ -6664,7 +12364,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    type="button"
+
+
+
+
+
+
+
+
 
 
 
@@ -6680,7 +12396,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   >
+
+
+
+
+
+
+
+
 
 
 
@@ -6696,7 +12428,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6720,7 +12476,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    type="button"
+
+
+
+
+
+
+
+
 
 
 
@@ -6736,7 +12508,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   >
+
+
+
+
+
+
+
+
 
 
 
@@ -6752,6 +12540,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   </button>
 
 
@@ -6760,7 +12556,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  </li>
+
+
+
+
+
+
+
+
 
 
 
@@ -6784,7 +12596,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </ul>
+
+
+
+
+
+
+
+
 
 
 
@@ -6800,7 +12636,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
+
+
+
+
+
+
+
+
 
 
 
@@ -6824,7 +12676,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -6840,7 +12716,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      CUSTOMER ONLY
+
+
+
+
+
+
+
+
 
 
 
@@ -6864,6 +12756,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {isCustomer && (
 
 
@@ -6872,7 +12780,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     <>
+
+
+
+
+
+
+
+
 
 
 
@@ -6896,7 +12820,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      {invoices.length === 0 ? (
+
+
+
+
+
+
+
+
 
 
 
@@ -6912,7 +12860,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        No invoices available.
+
+
+
+
+
+
+
+
 
 
 
@@ -6928,6 +12892,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      ) : (
 
 
@@ -6936,7 +12908,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <div className="invoices-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6968,7 +12964,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div
+
+
+
+
+
+
+
+
 
 
 
@@ -6984,7 +13004,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          key={invoice.id}
+
+
+
+
+
+
+
+
 
 
 
@@ -7008,6 +13044,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <h3>
 
 
@@ -7016,7 +13068,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.invoiceNumber}
+
+
+
+
+
+
+
+
 
 
 
@@ -7040,7 +13108,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -7056,7 +13148,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           <strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -7072,7 +13180,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           </strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -7096,7 +13220,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -7112,7 +13260,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           <strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -7128,7 +13292,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           </strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -7152,7 +13332,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -7168,7 +13372,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.currency}
+
+
+
+
+
+
+
+
 
 
 
@@ -7192,7 +13412,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -7208,7 +13452,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.currency}{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -7224,7 +13484,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7248,7 +13532,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Due Date:{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -7264,25 +13564,67 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
 
 
 
-                  
+
+
+
+
+
+
+
+
+
 
 
 
                   <button
 
+
+
                     type="button"
+
+
 
                     onClick={() => viewInvoiceDetails(invoice)}
 
+
+
                   >
+
+
 
                     View Details
 
+
+
                   </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7314,7 +13656,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        ))}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7338,6 +13712,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      )}
 
 
@@ -7346,7 +13728,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
+
+
+
+
+
+
+
+
 
 
 
@@ -7370,7 +13768,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -7386,7 +13808,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      OWNER + ACCOUNTANT
+
+
+
+
+
+
+
+
 
 
 
@@ -7410,7 +13848,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {!isCustomer && (
+
+
+
+
+
+
+
+
 
 
 
@@ -7426,7 +13888,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h2>Create Invoice</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7458,7 +13944,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -7474,7 +13984,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        placeholder="Invoice Number"
+
+
+
+
+
+
+
+
 
 
 
@@ -7490,7 +14016,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -7506,6 +14048,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
 
 
@@ -7514,7 +14064,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -7538,7 +14104,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <select
+
+
+
+
+
+
+
+
 
 
 
@@ -7554,7 +14144,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -7570,7 +14176,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -7586,7 +14208,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       >
+
+
+
+
+
+
+
+
 
 
 
@@ -7602,6 +14240,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         Select Customer
 
 
@@ -7610,7 +14256,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7642,7 +14312,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <option
+
+
+
+
+
+
+
+
 
 
 
@@ -7658,7 +14352,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          value={customer.id}
+
+
+
+
+
+
+
+
 
 
 
@@ -7674,6 +14384,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          {customer.name}
 
 
@@ -7682,7 +14400,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7714,6 +14456,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </select>
 
 
@@ -7730,6 +14488,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
 
 
@@ -7738,7 +14512,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="date"
+
+
+
+
+
+
+
+
 
 
 
@@ -7754,7 +14544,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -7770,7 +14576,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -7786,7 +14608,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7810,7 +14656,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="date"
+
+
+
+
+
+
+
+
 
 
 
@@ -7826,7 +14688,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -7842,7 +14720,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -7858,7 +14752,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7882,7 +14800,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={invoiceStatus}
+
+
+
+
+
+
+
+
 
 
 
@@ -7898,7 +14832,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setInvoiceStatus(e.target.value)
+
+
+
+
+
+
+
+
 
 
 
@@ -7914,7 +14864,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       >
+
+
+
+
+
+
+
+
 
 
 
@@ -7930,6 +14896,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         DRAFT
 
 
@@ -7938,7 +14912,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7962,6 +14960,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         ISSUED
 
 
@@ -7970,7 +14976,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7994,6 +15024,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         PAID
 
 
@@ -8002,7 +15040,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8026,7 +15088,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         OVERDUE
+
+
+
+
+
+
+
+
 
 
 
@@ -8042,7 +15120,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8066,7 +15168,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={invoiceCurrency}
+
+
+
+
+
+
+
+
 
 
 
@@ -8082,7 +15200,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setInvoiceCurrency(e.target.value)
+
+
+
+
+
+
+
+
 
 
 
@@ -8098,7 +15232,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       >
+
+
+
+
+
+
+
+
 
 
 
@@ -8114,7 +15264,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        <option value="USD">USD</option>
+
+
+
+
+
+
+
+
 
 
 
@@ -8130,7 +15296,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        <option value="GBP">GBP</option>
+
+
+
+
+
+
+
+
 
 
 
@@ -8146,6 +15328,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        <option value="CAD">CAD</option>
 
 
@@ -8154,7 +15344,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </select>
+
+
+
+
+
+
+
+
 
 
 
@@ -8178,7 +15384,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {invoiceItems.map((item, index) => (
+
+
+
+
+
+
+
+
 
 
 
@@ -8194,7 +15424,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   <input
+
+
+
+
+
+
+
+
 
 
 
@@ -8210,7 +15456,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    placeholder="Item Description"
+
+
+
+
+
+
+
+
 
 
 
@@ -8226,6 +15488,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    onChange={(e) => {
 
 
@@ -8234,7 +15504,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     const updatedItems = [...invoiceItems];
+
+
+
+
+
+
+
+
 
 
 
@@ -8250,6 +15536,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     setInvoiceItems(updatedItems);
 
 
@@ -8258,7 +15552,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    }}
+
+
+
+
+
+
+
+
 
 
 
@@ -8282,7 +15592,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <input
+
+
+
+
+
+
+
+
 
 
 
@@ -8298,7 +15632,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    step="0.01"
+
+
+
+
+
+
+
+
 
 
 
@@ -8314,7 +15664,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    value={item.quantity}
+
+
+
+
+
+
+
+
 
 
 
@@ -8330,7 +15696,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     const updatedItems = [...invoiceItems];
+
+
+
+
+
+
+
+
 
 
 
@@ -8346,7 +15728,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     setInvoiceItems(updatedItems);
+
+
+
+
+
+
+
+
 
 
 
@@ -8362,7 +15760,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8386,7 +15808,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    type="number"
+
+
+
+
+
+
+
+
 
 
 
@@ -8402,7 +15840,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    placeholder="Unit Price"
+
+
+
+
+
+
+
+
 
 
 
@@ -8418,7 +15872,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    onChange={(e) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -8434,7 +15904,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     updatedItems[index].unitPrice = e.target.value;
+
+
+
+
+
+
+
+
 
 
 
@@ -8450,7 +15936,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    }}
+
+
+
+
+
+
+
+
 
 
 
@@ -8466,43 +15968,95 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <span>
+
+
 
       Amount: ₹
 
+
+
       {((Number(item.quantity) || 0) * (Number(item.unitPrice) || 0)).toFixed(2)}
+
+
 
     </span>
 
 
 
+
+
+
+
     {invoiceItems.length > 1 && (
+
+
 
       <button
 
+
+
         type="button"
+
+
 
         onClick={() => {
 
+
+
           setInvoiceItems(
+
+
 
             invoiceItems.filter((_, itemIndex) => itemIndex !== index)
 
+
+
           );
+
+
 
         }}
 
+
+
       >
+
+
 
         Remove
 
+
+
       </button>
+
+
 
     )}
 
 
 
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -8526,7 +16080,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <button
+
+
+
+
+
+
+
+
 
 
 
@@ -8542,7 +16120,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  onClick={() => {
+
+
+
+
+
+
+
+
 
 
 
@@ -8558,7 +16152,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    ...invoiceItems,
+
+
+
+
+
+
+
+
 
 
 
@@ -8574,7 +16184,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     description: "",
+
+
+
+
+
+
+
+
 
 
 
@@ -8590,7 +16216,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     unitPrice: ""
+
+
+
+
+
+
+
+
 
 
 
@@ -8606,7 +16248,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
   ]);
+
+
+
+
+
+
+
+
 
 
 
@@ -8622,6 +16280,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
 >
 
 
@@ -8630,7 +16296,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
  Add Item
+
+
+
+
+
+
+
+
 
 
 
@@ -8654,17 +16336,45 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
 
                 type="number"
 
+
+
                 step="0.01"
+
+
 
                 placeholder="Subtotal"
 
+
+
                 value={calculatedInvoiceSubtotal.toFixed(2)}
 
+
+
                 readOnly
+
+
 
               />
 
@@ -8682,7 +16392,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -8698,7 +16432,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        step="0.01"
+
+
+
+
+
+
+
+
 
 
 
@@ -8714,7 +16464,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={tax}
+
+
+
+
+
+
+
+
 
 
 
@@ -8730,7 +16496,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setTax(e.target.value)
+
+
+
+
+
+
+
+
 
 
 
@@ -8746,7 +16528,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -8770,6 +16568,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <button type="submit">
 
 
@@ -8778,7 +16592,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        Create Invoice
+
+
+
+
+
+
+
+
 
 
 
@@ -8802,6 +16632,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      </form>
 
 
@@ -8810,7 +16656,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
+
+
+
+
+
+
+
+
 
 
 
@@ -8834,7 +16696,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -8850,7 +16736,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      OWNER + ACCOUNTANT
+
+
+
+
+
+
+
+
 
 
 
@@ -8874,6 +16776,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {!isCustomer && (
 
 
@@ -8882,7 +16800,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     <>
+
+
+
+
+
+
+
+
 
 
 
@@ -8906,7 +16840,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      {invoices.length === 0 ? (
+
+
+
+
+
+
+
+
 
 
 
@@ -8922,6 +16880,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      ) : (
 
 
@@ -8930,7 +16896,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <div className="invoices-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8962,7 +16952,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div
+
+
+
+
+
+
+
+
 
 
 
@@ -8978,7 +16992,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          key={invoice.id}
+
+
+
+
+
+
+
+
 
 
 
@@ -9002,6 +17032,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <h3>
 
 
@@ -9010,7 +17056,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.invoiceNumber}
+
+
+
+
+
+
+
+
 
 
 
@@ -9034,7 +17096,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -9050,7 +17136,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           <strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -9066,6 +17168,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           </strong>
 
 
@@ -9074,7 +17184,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9098,7 +17232,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Status:{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -9114,7 +17264,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            {invoice.status}
+
+
+
+
+
+
+
+
 
 
 
@@ -9130,7 +17296,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9154,7 +17344,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Change Status:{" "}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9178,7 +17392,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            value={invoice.status}
+
+
+
+
+
+
+
+
 
 
 
@@ -9194,7 +17424,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
             updateInvoiceStatus(
+
+
+
+
+
+
+
+
 
 
 
@@ -9210,7 +17456,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
              e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -9226,7 +17488,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            }
+
+
+
+
+
+
+
+
 
 
 
@@ -9242,7 +17520,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            <option value="DRAFT">
+
+
+
+
+
+
+
+
 
 
 
@@ -9258,7 +17552,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9282,6 +17600,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
             ISSUED
 
 
@@ -9290,7 +17616,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9314,6 +17664,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
             PAID
 
 
@@ -9322,7 +17680,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9346,6 +17728,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
             OVERDUE
 
 
@@ -9354,7 +17744,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
            </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9386,6 +17800,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          </label>
 
 
@@ -9402,7 +17832,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -9418,7 +17872,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.currency}
+
+
+
+
+
+
+
+
 
 
 
@@ -9442,7 +17912,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -9458,7 +17952,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.currency}{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -9474,7 +17984,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9498,7 +18032,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Tax:{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -9514,6 +18064,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.tax}
 
 
@@ -9522,7 +18080,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9546,7 +18128,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Total:{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -9562,7 +18160,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {invoice.total}
+
+
+
+
+
+
+
+
 
 
 
@@ -9588,35 +18202,97 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   <div className="invoice-actions">
 
-  {invoice.status !== "PAID" && (
-    <button
-      type="button"
-      onClick={() => markInvoiceAsPaid(invoice)}
-    >
-      Mark as Paid
-    </button>
-  )}
 
-  {invoice.status === "PAID" && (
-    <span className="payment-completed">
-      Payment Status: COMPLETED
-    </span>
-  )}
 
-  <button
-    type="button"
-    onClick={() => viewInvoiceDetails(invoice)}
-  >
-    View Details
-  </button>
+  {invoice.status !== "PAID" && (
+
+    <button
+
+      type="button"
+
+      onClick={() => markInvoiceAsPaid(invoice)}
+
+    >
+
+      Mark as Paid
+
+    </button>
+
+  )}
+
+
+
+  {invoice.status === "PAID" && (
+
+    <span className="payment-completed">
+
+      Payment Status: COMPLETED
+
+    </span>
+
+  )}
+
+
+
+  <button
+
+    type="button"
+
+    onClick={() => viewInvoiceDetails(invoice)}
+
+  >
+
+    View Details
+
+  </button>
+
+
 
 </div>
 
 
 
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9648,7 +18324,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -9664,6 +18364,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
 
 
@@ -9672,7 +18380,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
    )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9690,135 +18422,269 @@ const startEditCustomer = (customer) => {
 
          {/* =========================
 
+
+
           INVOICE DETAIL
 
+
+
           ALL ROLES
+
+
 
           ========================= */}
 
 
 
+
+
+
+
       {selectedInvoice && (
+
+
 
         <div
 
+
+
           style={{
+
+
 
             position: "fixed",
 
+
+
             inset: 0,
+
+
 
             backgroundColor: "rgba(0, 0, 0, 0.55)",
 
+
+
             display: "flex",
+
+
 
             justifyContent: "center",
 
+
+
             alignItems: "center",
+
+
 
             zIndex: 9999,
 
+
+
             padding: "20px",
+
+
 
           }}
 
+
+
         >
+
+
 
           <div
 
+
+
             style={{
+
+
 
               backgroundColor: "#ffffff",
 
+
+
               width: "100%",
+
+
 
               maxWidth: "750px",
 
+
+
               maxHeight: "90vh",
+
+
 
               overflowY: "auto",
 
+
+
               borderRadius: "12px",
+
+
 
               padding: "25px",
 
+
+
               boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+
+
 
             }}
 
+
+
           >
+
+
 
             <div
 
+
+
               style={{
+
+
 
                 display: "flex",
 
+
+
                 justifyContent: "space-between",
+
+
 
                 alignItems: "center",
 
+
+
                 marginBottom: "20px",
+
+
 
               }}
 
+
+
             >
+
+
 
               <h2 style={{ margin: 0 }}>Invoice Details</h2>
 
 
 
+
+
+
+
               <button type="button" onClick={closeInvoiceDetails}>
+
+
 
                 ✕ Close
 
+
+
               </button>
+
+
 
             </div>
 
 
 
+
+
+
+
             <p>
+
+
 
               <strong>Invoice:</strong> {selectedInvoice.invoiceNumber}
 
+
+
             </p>
 
+
+
             <p>
+
+
 
               <strong>Customer:</strong>{" "}
 
+
+
               {selectedInvoice.customer?.name || "Customer"}
+
+
 
             </p>
 
+
+
             <p>
+
+
 
               <strong>Status:</strong> {selectedInvoice.status}
 
+
+
             </p>
 
+
+
             <p>
+
+
 
               <strong>Issue Date:</strong> {selectedInvoice.issueDate}
 
+
+
             </p>
 
+
+
             <p>
+
+
 
               <strong>Due Date:</strong> {selectedInvoice.dueDate}
 
+
+
             </p>
+
+
 
             <p>
 
+
+
               <strong>Currency:</strong> {selectedInvoice.currency}
 
+
+
             </p>
+
+
+
+
 
 
 
             <hr />
+
+
+
+
 
 
 
@@ -9826,69 +18692,139 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
             {invoiceDetailsLoading ? (
+
+
 
               <p>Loading invoice items...</p>
 
+
+
             ) : selectedInvoiceItems.length === 0 ? (
+
+
 
               <p>No invoice items found for this invoice.</p>
 
+
+
             ) : (
+
+
 
               <div>
 
+
+
                 {selectedInvoiceItems.map((item) => (
+
+
 
                   <div
 
+
+
                     key={item.id}
+
+
 
                     style={{
 
+
+
                       border: "1px solid #ddd",
+
+
 
                       borderRadius: "8px",
 
+
+
                       padding: "12px",
+
+
 
                       marginBottom: "10px",
 
+
+
                     }}
+
+
 
                   >
 
+
+
                     <p>
+
+
 
                       <strong>{item.description}</strong>
 
+
+
                     </p>
+
+
 
                     <p>Quantity: {item.quantity}</p>
 
+
+
                     <p>
+
+
 
                       Unit Price: {selectedInvoice.currency}{" "}
 
+
+
                       {Number(item.unitPrice || 0).toFixed(2)}
 
+
+
                     </p>
+
+
 
                     <p>
 
+
+
                       Amount: {selectedInvoice.currency}{" "}
+
+
 
                       {Number(item.amount || 0).toFixed(2)}
 
+
+
                     </p>
+
+
 
                   </div>
 
+
+
                 ))}
+
+
 
               </div>
 
+
+
             )}
+
+
+
+
 
 
 
@@ -9896,53 +18832,107 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
             <p>
+
+
 
               <strong>Subtotal:</strong> {selectedInvoice.currency}{" "}
 
+
+
               {Number(selectedInvoice.subtotal || 0).toFixed(2)}
 
+
+
             </p>
+
+
+
+
 
 
 
             <p>
 
+
+
               <strong>Tax:</strong> {selectedInvoice.currency}{" "}
+
+
 
               {Number(selectedInvoice.tax || 0).toFixed(2)}
 
+
+
             </p>
+
+
+
+
 
 
 
             <p
 
+
+
               style={{
+
+
 
                 fontSize: "20px",
 
+
+
                 fontWeight: "bold",
+
+
 
               }}
 
+
+
             >
+
+
 
               Total: {selectedInvoice.currency}{" "}
 
+
+
               {Number(selectedInvoice.total || 0).toFixed(2)}
+
+
 
             </p>
 
+
+
           </div>
 
+
+
         </div>
+
+
 
       )}
 
 
 
+
+
+
+
 {/* =========================
+
+
+
+
 
 
 
@@ -9950,7 +18940,15 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
      OWNER + ACCOUNTANT
+
+
+
+
 
 
 
@@ -9958,7 +18956,15 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
    {!isCustomer && (
+
+
+
+
 
 
 
@@ -9966,103 +18972,207 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
      <h2>Reports / Summary</h2>
+
+
+
+
 
 
 
      <div
 
+
+
        style={{
+
+
 
          display: "grid",
 
+
+
          gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+
+
 
          gap: "15px",
 
+
+
          marginBottom: "25px",
 
+
+
        }}
+
+
 
      >
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Total Invoices</h3>
 
+
+
        <p>{invoices.length}</p>
+
+
 
       </div>
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Issued Invoices</h3>
 
+
+
        <p>{issuedInvoices}</p>
+
+
 
       </div>
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Paid Invoices</h3>
 
+
+
        <p>{paidInvoices}</p>
+
+
 
       </div>
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Overdue Invoices</h3>
 
+
+
        <p>
+
+
 
         {invoices.filter(
 
+
+
          (invoice) => invoice.status === "OVERDUE"
+
+
 
         ).length}
 
+
+
        </p>
+
+
 
       </div>
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Total Invoice Amount</h3>
 
+
+
        <p>₹{totalInvoices.toFixed(2)}</p>
+
+
 
       </div>
 
 
 
+
+
+
+
       <div className="dashboard-card">
+
+
 
        <h3>Total Expenses</h3>
 
+
+
        <p>₹{totalExpenses.toFixed(2)}</p>
 
+
+
       </div>
+
+
+
+
 
 
 
       <div className="dashboard-card">
 
+
+
        <h3>Net Amount</h3>
+
+
 
        <p>₹{netAmount.toFixed(2)}</p>
 
+
+
       </div>
+
+
+
+
 
 
 
@@ -10070,39 +19180,79 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
      <div
+
+
 
        className="invoice-card"
 
+
+
        style={{ marginBottom: "30px" }}
 
+
+
      >
+
+
 
       <h3>Expense Category Summary</h3>
 
 
 
+
+
+
+
       {expenses.length === 0 ? (
+
+
 
        <p>No expenses available.</p>
 
+
+
       ) : (
+
+
 
        <div>
 
+
+
         {Object.entries(
 
+
+
          expenses.reduce((summary, expense) => {
+
+
 
           const category = expense.category || "Uncategorized";
 
 
 
+
+
+
+
           if (!summary[category]) {
+
+
 
            summary[category] = 0;
 
+
+
           }
+
+
+
+
 
 
 
@@ -10110,25 +19260,51 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
           return summary;
+
+
 
          }, {})
 
+
+
         ).map(([category, total]) => (
+
+
 
          <p key={category}>
 
+
+
           <strong>{category}:</strong> ₹{total.toFixed(2)}
+
+
 
          </p>
 
+
+
         ))}
+
+
 
        </div>
 
+
+
       )}
 
+
+
      </div>
+
+
+
+
 
 
 
@@ -10136,11 +19312,27 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
    )}
 
 
 
+
+
+
+
 {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -10156,7 +19348,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      OWNER + ACCOUNTANT
+
+
+
+
+
+
+
+
 
 
 
@@ -10180,7 +19388,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {!isCustomer && (
+
+
+
+
+
+
+
+
 
 
 
@@ -10196,7 +19428,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h2>Add Expense</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10228,6 +19484,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
 
 
@@ -10236,7 +19508,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="text"
+
+
+
+
+
+
+
+
 
 
 
@@ -10252,6 +19540,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={expenseDescription}
 
 
@@ -10260,7 +19556,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -10276,7 +19588,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -10292,6 +19620,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
 
 
@@ -10300,7 +19636,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -10324,7 +19676,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -10340,7 +19716,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        step="0.01"
+
+
+
+
+
+
+
+
 
 
 
@@ -10356,6 +19748,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={expenseAmount}
 
 
@@ -10364,7 +19764,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -10380,7 +19796,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -10396,6 +19828,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
 
 
@@ -10404,7 +19844,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        required
+
+
+
+
+
+
+
+
 
 
 
@@ -10428,7 +19884,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -10444,7 +19924,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        placeholder="Category"
+
+
+
+
+
+
+
+
 
 
 
@@ -10460,7 +19956,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -10476,7 +19988,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -10492,7 +20020,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -10508,7 +20052,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10532,7 +20100,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        type="date"
+
+
+
+
+
+
+
+
 
 
 
@@ -10548,7 +20132,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -10564,7 +20164,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -10580,7 +20196,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -10596,7 +20228,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10620,6 +20276,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        Add Expense
 
 
@@ -10628,7 +20292,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10660,7 +20348,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <h2>Expenses</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10684,7 +20404,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <p>No expenses found.</p>
+
+
+
+
+
+
+
+
 
 
 
@@ -10700,7 +20436,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       <div className="invoices-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10732,7 +20492,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div
+
+
+
+
+
+
+
+
 
 
 
@@ -10748,7 +20532,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          key={expense.id}
+
+
+
+
+
+
+
+
 
 
 
@@ -10772,6 +20572,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <h3>
 
 
@@ -10780,7 +20596,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           {expense.description}
+
+
+
+
+
+
+
+
 
 
 
@@ -10804,7 +20636,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -10820,7 +20676,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           <strong>
+
+
+
+
+
+
+
+
 
 
 
@@ -10836,6 +20708,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           </strong>
 
 
@@ -10844,7 +20724,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10868,7 +20772,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Date:{" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -10884,7 +20804,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10908,7 +20852,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
           Amount: ₹
+
+
+
+
+
+
+
+
 
 
 
@@ -10924,7 +20884,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10956,7 +20940,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        ))}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10980,6 +20996,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      )}
 
 
@@ -10988,7 +21012,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
+
+
+
+
+
+
+
+
 
 
 
@@ -11012,7 +21052,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {/* =========================
+
+
+
+
+
+
+
+
 
 
 
@@ -11028,7 +21092,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      OWNER + ACCOUNTANT
+
+
+
+
+
+
+
+
 
 
 
@@ -11052,7 +21132,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    {!isCustomer && (
+
+
+
+
+
+
+
+
 
 
 
@@ -11068,7 +21172,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
      <h2>Currency Converter</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11100,7 +21228,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <input
+
+
+
+
+
+
+
+
 
 
 
@@ -11116,7 +21268,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        step="0.01"
+
+
+
+
+
+
+
+
 
 
 
@@ -11132,7 +21300,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        value={amount}
+
+
+
+
+
+
+
+
 
 
 
@@ -11148,6 +21332,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         setAmount(e.target.value)
 
 
@@ -11156,7 +21348,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -11180,7 +21388,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <select
+
+
+
+
+
+
+
+
 
 
 
@@ -11196,7 +21428,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -11212,7 +21460,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -11228,7 +21492,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -11244,7 +21524,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        <option value="USD">
+
+
+
+
+
+
+
+
 
 
 
@@ -11260,7 +21556,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11284,6 +21604,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         INR
 
 
@@ -11292,7 +21620,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11316,6 +21668,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         EUR
 
 
@@ -11324,7 +21684,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11348,6 +21732,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         GBP
 
 
@@ -11356,7 +21748,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11380,6 +21796,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         AUD
 
 
@@ -11388,7 +21812,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11412,7 +21860,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         CAD
+
+
+
+
+
+
+
+
 
 
 
@@ -11436,7 +21900,39 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11460,7 +21956,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        →
+
+
+
+
+
+
+
+
 
 
 
@@ -11484,7 +21996,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <select
+
+
+
+
+
+
+
+
 
 
 
@@ -11500,7 +22036,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        onChange={(e) =>
+
+
+
+
+
+
+
+
 
 
 
@@ -11516,7 +22068,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          e.target.value
+
+
+
+
+
+
+
+
 
 
 
@@ -11532,7 +22100,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        }
+
+
+
+
+
+
+
+
 
 
 
@@ -11548,7 +22132,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        <option value="INR">
+
+
+
+
+
+
+
+
 
 
 
@@ -11564,7 +22164,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11588,6 +22212,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         USD
 
 
@@ -11596,7 +22228,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11620,6 +22276,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         EUR
 
 
@@ -11628,7 +22292,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11652,6 +22340,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         GBP
 
 
@@ -11660,7 +22356,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11684,6 +22404,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         AUD
 
 
@@ -11692,7 +22420,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11716,6 +22468,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
         CAD
 
 
@@ -11724,7 +22484,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11756,7 +22540,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <button
+
+
+
+
+
+
+
+
 
 
 
@@ -11772,6 +22580,14 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
       >
 
 
@@ -11780,7 +22596,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
        Convert
+
+
+
+
+
+
+
+
 
 
 
@@ -11804,7 +22636,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {exchangeRate !== null && (
+
+
+
+
+
+
+
+
 
 
 
@@ -11828,7 +22684,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <p>
+
+
+
+
+
+
+
+
 
 
 
@@ -11844,7 +22724,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          {fromCurrency} ={" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -11860,7 +22756,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          {toCurrency}
+
+
+
+
+
+
+
+
 
 
 
@@ -11884,7 +22796,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -11900,7 +22836,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          {fromCurrency} ={" "}
+
+
+
+
+
+
+
+
 
 
 
@@ -11916,7 +22868,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
          {toCurrency}
+
+
+
+
+
+
+
+
 
 
 
@@ -11940,7 +22908,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -11964,6 +22956,22 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      </div>
 
 
@@ -11972,7 +22980,23 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
     </>
+
+
+
+
+
+
+
+
 
 
 
@@ -11996,7 +23020,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -12012,7 +23060,31 @@ const startEditCustomer = (customer) => {
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
