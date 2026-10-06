@@ -1,0 +1,30 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/target/
+
+# Environment files
+.env
+*.env
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Java
+*.class
+
+# Temporary files
+*.tmp
+# Local database configuration
+backend/src/main/resources/application.properties
