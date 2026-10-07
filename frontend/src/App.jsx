@@ -1647,7 +1647,7 @@ function App() {
 
 
 
-    "http://localhost:8080/api/auth/login",
+    "https://bizbooks-2.onrender.com/api/auth/login",
 
 
 
@@ -2303,7 +2303,7 @@ localStorage.setItem("bizbooksToken", user.token);
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/auth/register",
+        "https://bizbooks-2.onrender.com/api/auth/register",
         {
           method: "POST",
           headers: {
@@ -2888,7 +2888,7 @@ return response;
 
 
 
-  authFetch("http://localhost:8080/api/customers")
+  authFetch("https://bizbooks-2.onrender.com/api/customers")
 
 
 
@@ -3128,7 +3128,7 @@ return response;
 
 
 
-  authFetch("http://localhost:8080/api/invoices")
+  authFetch("https://bizbooks-2.onrender.com/api/invoices")
 
 
 
@@ -3368,7 +3368,7 @@ return response;
 
 
 
-  authFetch("http://localhost:8080/api/expenses")
+  authFetch("https://bizbooks-2.onrender.com/api/expenses")
 
 
 
@@ -3912,7 +3912,7 @@ return response;
 
 
 
- authFetch("http://localhost:8080/api/customers", {
+ authFetch("https://bizbooks-2.onrender.com/api/customers", {
 
 
 
@@ -4184,7 +4184,7 @@ const updateCustomer = (event) => {
 
 
 
- authFetch(`http://localhost:8080/api/customers/${editingCustomerId}`, {
+ authFetch(`https://bizbooks-2.onrender.com/api/customers/${editingCustomerId}`, {
 
 
 
@@ -4432,7 +4432,7 @@ const deleteCustomer = (id) => {
 
 
 
- authFetch(`http://localhost:8080/api/customers/${id}`, {
+ authFetch(`https://bizbooks-2.onrender.com/api/customers/${id}`, {
 
 
 
@@ -4712,7 +4712,7 @@ const startEditCustomer = (customer) => {
 
 
 
-        `http://localhost:8080/api/invoice-items/invoice/${invoice.id}`
+        `https://bizbooks-2.onrender.com/api/invoice-items/invoice/${invoice.id}`
 
 
 
@@ -5340,7 +5340,7 @@ const startEditCustomer = (customer) => {
 
 
 
-  authFetch("http://localhost:8080/api/invoices", {
+  authFetch("https://bizbooks-2.onrender.com/api/invoices", {
 
 
 
@@ -5612,7 +5612,7 @@ const startEditCustomer = (customer) => {
 
 
 
-  await authFetch("http://localhost:8080/api/invoice-items", {
+  await authFetch("https://bizbooks-2.onrender.com/api/invoice-items", {
 
 
 
@@ -6736,7 +6736,7 @@ const startEditCustomer = (customer) => {
 
 
 
-  authFetch("http://localhost:8080/api/expenses", {
+  authFetch("https://bizbooks-2.onrender.com/api/expenses", {
 
 
 
@@ -7568,7 +7568,7 @@ const startEditCustomer = (customer) => {
 
 
 
-   `http://localhost:8080/api/invoices/${invoice.id}`,
+   `https://bizbooks-2.onrender.com/api/invoices/${invoice.id}`,
 
 
 
@@ -8080,7 +8080,7 @@ const startEditCustomer = (customer) => {
 
 
 
-   const response = await authFetch("http://localhost:8080/api/payments", {
+   const response = await authFetch("https://bizbooks-2.onrender.com/api/payments", {
 
 
 
@@ -8436,7 +8436,7 @@ const startEditCustomer = (customer) => {
 
 
 
-   `http://localhost:8080/api/currency/rate?from=${fromCurrency}&to=${toCurrency}`
+   `https://bizbooks-2.onrender.com/api/currency/rate?from=${fromCurrency}&to=${toCurrency}`
 
 
 
